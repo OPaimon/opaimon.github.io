@@ -1,7 +1,7 @@
 ---
 title: 使用Astro来构建自己的博客
 # Title of the post
-description: "本着对折腾的喜爱，以及希望有一个地方记录自己的学习生活，外带对之前用Vuepress构建博客却连文件结构都没搞明白的不满，尝试用Astro来构建自己的博客" 
+description: "本着对折腾的喜爱，以及希望有一个地方记录自己的学习生活，外带对之前用Vuepress构建博客却连文件结构都没搞明白的不满，尝试用Astro来构建自己的博客"
 # Description of the post.
 pubDatetime: 2023-09-29T01:00:05+08:00
 # Published datetime in ISO 8601 format.
@@ -10,7 +10,7 @@ pubDatetime: 2023-09-29T01:00:05+08:00
 postSlug: "how-to-take-blog-by-astro"
 # Slug for the post. Will automatically be slugified.
 # default = slugified title
-featured: false 
+featured: true
 draft: false
 tags:
   - post
@@ -33,7 +33,9 @@ tags:
 那么，用这么一个新的东西来重新制作我们的博客便成了一个自然而然的主意了！
 
 ### 让我们开始吧！
+
 现在，打开我们的电脑，安装好`pnpm` `git` `code-OSS`等工具，开始我们的探索旅程吧！旅途中的每一步都将被我记录在这篇博文里~
+
 ```shell
 $> paru -S pnpm git code
 $> echo "Adventure Start!"
@@ -44,15 +46,21 @@ $> echo "Adventure Start!"
 ## 在本地构建自己的博客
 
 ### 建立自己的项目！
+
 参照[ Astro 的文档](https://docs.astro.build/zh-cn/)我们可以用 `pnpm create astro@latest` 来创建一个本地的 Astro 项目
+
 ```sh
 $> pnpm create astro@latest
 ```
+
 当然你也可以用社区的主题模板作为开始来建立自己的项目，例如`npm create astro@latest -- --template satnaing/astro-paper`来用 Astro Paper 主题来建立一个项目
+
 ```sh
 $> npm create astro@latest -- --template satnaing/astro-paper
 ```
+
 接下来的步骤引用一下[文档](https://docs.astro.build/zh-cn/tutorial/1-setup/2/)中的步骤
+
 > 确认后安装 create-astro
 
 > 当提示 Where would you like to create your new project?（你想要在哪里创建你的新项目？）时输入文件夹的名称来为你的项目创建一个新目录，例如: ./tutorial
@@ -74,9 +82,11 @@ $> npm create astro@latest -- --template satnaing/astro-paper
 也推荐大家先跟着文档中给的[Tutorial](https://docs.astro.build/zh-cn/tutorial/0-introduction/)先过一遍，这样对于 Astro 的一些基本理念也能有所了解
 
 在建立完自己的项目以后，来到项目文件夹，运行:
+
 ```sh
 $> pnpm run dev
 ```
+
 即可启动本地的开发服务器！
 
 此时你在本地做出的任何修改都会如实的反应到 [localhost:4321](localhost:4321) 里(如果你没改一些奇怪的东西的话
