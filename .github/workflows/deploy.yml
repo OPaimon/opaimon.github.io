@@ -25,6 +25,9 @@ jobs:
         with:
           ssh-private-key: |
             ${{ secrets.BLOG_DEPLOY_KEY }}
+      - name: Scan public keys
+        run: |
+          ssh-keyscan 185.225.20.249 >> ~/.ssh/known_hosts
       - name: Install, build, and upload your site output
         uses: withastro/action@v1
         with:
