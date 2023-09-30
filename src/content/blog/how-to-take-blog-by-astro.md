@@ -90,3 +90,29 @@ $> pnpm run dev
 即可启动本地的开发服务器！
 
 此时你在本地做出的任何修改都会如实的反应到 [localhost:4321](localhost:4321) 里(如果你没改一些奇怪的东西的话
+
+
+## 将项目推送到GitHub
+
+GitHub是一个著名的代码托管平台，同时也提供了`GitHub Actions`，`GitHub Pages`等功能，在这里我们先介绍一下如何将本地的项目上传到GitHub上的仓库中
+
+### 生成SSH密钥🔐
+
+我们将使用SSH协议进行本地项目与 GitHub 上远程仓库之间的文件传输.
+
+参照 [Github 文档](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)我们知道可以由如下命令生成 SSHkey 并打印出公钥:
+```sh
+$> ssh-keygen -t ed25519 -C "your_email@example.com"
+$> cat ~/.ssh/id_ed25519.pub
+```
+
+### 添加私钥到`ssh-agent`
+
+
+### 向账户添加 SSHkey
+在 GitHub 任意界面的右上角点击个人照片并点击Settings:
+![20230930145513](https://raw.githubusercontent.com/OPaimon/opaimon.github.io/master/src/assets/images/20230930145513.png)
+然后在 `SSHkey and GPG keys`这一选项中单击`New SSHkey`
+ ![20230930145944](https://raw.githubusercontent.com/OPaimon/opaimon.github.io/master/src/assets/images/20230930145944.png)
+然后将上文中打印出的公钥输入进去即可
+
