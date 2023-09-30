@@ -37,8 +37,8 @@ tags:
 现在，打开我们的电脑，安装好`pnpm` `git` `code-OSS`等工具，开始我们的探索旅程吧！旅途中的每一步都将被我记录在这篇博文里~
 
 ```shell
-$> paru -S pnpm git code
-$> echo "Adventure Start!"
+$ paru -S pnpm git code
+$ echo "Adventure Start!"
 ```
 
 ## Table of contents
@@ -50,13 +50,13 @@ $> echo "Adventure Start!"
 参照[ Astro 的文档](https://docs.astro.build/zh-cn/)我们可以用 `pnpm create astro@latest` 来创建一个本地的 Astro 项目
 
 ```sh
-$> pnpm create astro@latest
+$ pnpm create astro@latest
 ```
 
 当然你也可以用社区的主题模板作为开始来建立自己的项目，例如`npm create astro@latest -- --template satnaing/astro-paper`来用 Astro Paper 主题来建立一个项目
 
 ```sh
-$> npm create astro@latest -- --template satnaing/astro-paper
+$ npm create astro@latest -- --template satnaing/astro-paper
 ```
 
 接下来的步骤引用一下[文档](https://docs.astro.build/zh-cn/tutorial/1-setup/2/)中的步骤
@@ -84,7 +84,7 @@ $> npm create astro@latest -- --template satnaing/astro-paper
 在建立完自己的项目以后，来到项目文件夹，运行:
 
 ```sh
-$> pnpm run dev
+$ pnpm run dev
 ```
 
 即可启动本地的开发服务器！
@@ -102,17 +102,37 @@ GitHub是一个著名的代码托管平台，同时也提供了`GitHub Actions`�
 
 参照 [Github 文档](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)我们知道可以由如下命令生成 SSHkey 并打印出公钥:
 ```sh
-$> ssh-keygen -t ed25519 -C "your_email@example.com"
-$> cat ~/.ssh/id_ed25519.pub
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+$ cat ~/.ssh/id_ed25519.pub
 ```
 
 ### 添加私钥到`ssh-agent`
+以下引用[`GitHub Docs`](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent):
 
+> 在向 ssh 代理添加新的 SSH 密钥以管理您的密钥之前，您应该检查现有 SSH 密钥并生成新的 SSH 密钥。
+
+> 在后台启动 ssh 代理。
+
+```sh
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+```
+> 根据您的环境，您可能需要使用不同的命令。 例如，在启动 ssh-agent 之前，你可能需要通过运行 sudo -s -H 根访问，或者可能需要使用 exec ssh-agent bash 或 exec ssh-agent zsh 运行 ssh-agent。
+
+> 将 SSH 私钥添加到 ssh-agent。
+
+> 如果使用其他名称创建了密钥或要添加具有其他名称的现有密钥，请将命令中的 ided25519 替换为私钥文件的名称。
+
+```sh
+$ ssh-add ~/.ssh/id_ed25519
+```
 
 ### 向账户添加 SSHkey
 在 GitHub 任意界面的右上角点击个人照片并点击Settings:
 ![20230930145513](https://raw.githubusercontent.com/OPaimon/opaimon.github.io/master/src/assets/images/20230930145513.png)
 然后在 `SSHkey and GPG keys`这一选项中单击`New SSHkey`
  ![20230930145944](https://raw.githubusercontent.com/OPaimon/opaimon.github.io/master/src/assets/images/20230930145944.png)
+
+
 然后将上文中打印出的公钥输入进去即可
 
